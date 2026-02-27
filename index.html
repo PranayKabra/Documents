@@ -3,16 +3,151 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Documents</title>
+  <title>Documents | Pranay Kabra</title>
+
   <style>
-    body { font-family: system-ui, Arial, sans-serif; padding: 40px; }
-    a { display:inline-block; margin: 10px 0; font-size: 18px; }
+    :root{
+      --bg: #0a0a0a;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --primary: #00f7ff;
+      --shadow: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 18px;
+      background: radial-gradient(900px 500px at 20% 10%, rgba(0,247,255,0.12), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(255,0,85,0.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      width:min(900px, 100%);
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      letter-spacing: 0.5px;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    }
+
+    p{
+      margin:0 0 22px 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      color: var(--text);
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-align:center;
+      font-weight: 600;
+    }
+
+    .btn:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.55);
+      border-color: rgba(0,247,255,0.35);
+    }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(0,247,255,0.18), rgba(0,0,0,0.35));
+      border-color: rgba(0,247,255,0.28);
+    }
+
+    .btn small{
+      display:block;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .footer{
+      margin-top: 18px;
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a{
+      color: var(--primary);
+      text-decoration:none;
+    }
+
+    @media (max-width: 760px){
+      .grid{ grid-template-columns: 1fr; }
+      .card{ padding: 22px; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Documents</h1>
-  <a href="./Pranay_Kabra__Resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume (PDF)</a><br/>
-  <a href="./Project Portfolio_Mech.pdf" target="_blank" rel="noopener noreferrer">Open Portfolio (PDF)</a><br/>
-  <a href="./certificates/" target="_blank" rel="noopener noreferrer">Certificates (folder)</a>
+  <div class="wrap">
+    <div class="card">
+      <h1>Documents</h1>
+      <p>Resume, portfolio, and certificates (PDF).</p>
+
+      <div class="grid">
+        <a class="btn primary" href="./Pranay_Kabra__Resume.pdf" target="_blank" rel="noopener noreferrer">
+          Resume <small>PDF</small>
+        </a>
+
+        <a class="btn primary" href="./Project Portfolio_Mech.pdf" target="_blank" rel="noopener noreferrer">
+          Portfolio <small>PDF</small>
+        </a>
+
+        <a class="btn" href="./certificates/" target="_blank" rel="noopener noreferrer">
+          Certificates <small>Folder</small>
+        </a>
+      </div>
+
+      <div class="footer">
+        <span>© 2026 Pranay Kabra</span>
+        <span>
+          <a href="mailto:your.pranaykabra13@gmail.com">Email</a> ·
+          <a href="https://www.linkedin.com/in/pranaykabra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
