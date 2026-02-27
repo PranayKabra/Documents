@@ -3,151 +3,161 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Documents | Pranay Kabra</title>
+  <title>Pranay Kabra | Documents</title>
 
   <style>
     :root{
       --bg: #0a0a0a;
-      --card: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.10);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
+      --text: #fff;
+      --muted: rgba(255,255,255,0.78);
       --primary: #00f7ff;
+      --border: rgba(255,255,255,0.14);
+      --card: rgba(0,0,0,0.35);
       --shadow: 0 18px 45px rgba(0,0,0,0.55);
     }
-
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero{
+      min-height: 52vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:48px 18px;
-      background: radial-gradient(900px 500px at 20% 10%, rgba(0,247,255,0.12), transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(255,0,85,0.10), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      text-align:center;
+      position: relative;
+      overflow:hidden;
+      background: url("./hero.jpg") center/cover no-repeat; /* <- your image */
     }
-
-    .wrap{
-      width:min(900px, 100%);
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.55); /* overlay for readability */
     }
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      padding: 70px 18px;
+      width: min(1050px, 100%);
+    }
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .hero p span{ color: var(--primary); }
 
-    .card{
-      background: var(--card);
+    /* CONTENT */
+    .section{
+      width: min(1050px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+    .panel{
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 28px;
       box-shadow: var(--shadow);
+      padding: 22px;
+      margin-top: -34px; /* pulls it up into the hero slightly */
       backdrop-filter: blur(10px);
     }
 
-    h1{
-      margin:0 0 8px 0;
-      letter-spacing: 0.5px;
-      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
-    }
-
-    p{
-      margin:0 0 22px 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .btn{
+    .btn-row{
       display:flex;
+      gap: 16px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .btn{
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding: 14px 14px;
+      min-width: 220px;
+      padding: 14px 18px;
       border-radius: 14px;
       text-decoration:none;
       color: var(--text);
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      text-align:center;
-      font-weight: 600;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      font-weight: 650;
+      letter-spacing: 0.02em;
     }
-
     .btn:hover{
       transform: translateY(-6px);
       box-shadow: 0 18px 38px rgba(0,0,0,0.55);
       border-color: rgba(0,247,255,0.35);
     }
-
     .btn.primary{
-      background: linear-gradient(135deg, rgba(0,247,255,0.18), rgba(0,0,0,0.35));
-      border-color: rgba(0,247,255,0.28);
+      border-color: rgba(0,247,255,0.35);
+      background: linear-gradient(135deg, rgba(0,247,255,0.16), rgba(0,0,0,0.35));
     }
 
-    .btn small{
-      display:block;
-      font-weight: 500;
-      color: var(--muted);
+    .note{
+      margin: 14px 0 0;
+      text-align:center;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
     }
 
     .footer{
-      margin-top: 18px;
+      margin-top: 26px;
       display:flex;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
-      color: var(--muted);
+      color: rgba(255,255,255,0.65);
       font-size: 0.92rem;
     }
-
     .footer a{
       color: var(--primary);
       text-decoration:none;
-    }
-
-    @media (max-width: 760px){
-      .grid{ grid-template-columns: 1fr; }
-      .card{ padding: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Documents</h1>
-      <p>Resume, portfolio, and certificates (PDF).</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>PRANAY KABRA</h1>
+      <p>Mechanical Design · Automation · <span>Clean‑Tech</span></p>
+    </div>
+  </header>
 
-      <div class="grid">
-        <a class="btn primary" href="./Pranay_Kabra__Resume.pdf" target="_blank" rel="noopener noreferrer">
-          Resume <small>PDF</small>
-        </a>
-
-        <a class="btn primary" href="./Project Portfolio_Mech.pdf" target="_blank" rel="noopener noreferrer">
-          Portfolio <small>PDF</small>
-        </a>
-
-        <a class="btn" href="./certificates/" target="_blank" rel="noopener noreferrer">
-          Certificates <small>Folder</small>
-        </a>
+  <main class="section">
+    <div class="panel">
+      <div class="btn-row">
+        <a class="btn primary" href="./resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+        <a class="btn primary" href="./portfolio.pdf" target="_blank" rel="noopener noreferrer">Portfolio (PDF)</a>
+        <a class="btn" href="./certificates/index.html" target="_blank" rel="noopener noreferrer">Certificates</a>
       </div>
+
+      <p class="note">Tip: If “Certificates” 404s, create <code>certificates/index.html</code>.</p>
 
       <div class="footer">
         <span>© 2026 Pranay Kabra</span>
         <span>
-          <a href="mailto:your.pranaykabra13@gmail.com">Email</a> ·
-          <a href="https://www.linkedin.com/in/pranaykabra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a> ·
+          <a href="https://www.linkedin.com/in/your-linkedin-handle" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </span>
       </div>
     </div>
-  </div>
+  </main>
 </body>
 </html>
-
