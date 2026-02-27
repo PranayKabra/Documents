@@ -55,10 +55,30 @@
     .section{
       width:min(1050px,100%);
       margin:0 auto;
-      padding:0 18px 56px;
+      padding: 28px 18px 56px;
     }
+
+    /* ABOUT (below hero, black area) */
+    .about{
+      text-align:left;
+      margin: 0 auto 18px;
+      max-width: 72ch;
+    }
+    .about h2{
+      margin: 0 0 10px 0;
+      font-size: 1.35rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .about p{
+      margin:0;
+      color:rgba(255,255,255,.78);
+      line-height:1.7;
+      font-size:clamp(1rem, 0.6vw + 0.9rem, 1.08rem);
+    }
+
     .panel{
-      margin-top:-34px;
+      margin-top: 18px;
       padding:22px;
       border-radius:18px;
       background:rgba(255,255,255,.04);
@@ -128,22 +148,32 @@
   </header>
 
   <main class="section">
+    <section class="about">
+      <h2>About</h2>
+      <p>
+        A passionate and innovative Manufacturing Engineering graduate with hands-on experience in automation, product design, and
+        process optimization through co-op roles at Svante and Dometic. Key strengths include CAD (SolidWorks, Creo, Fusion 360),
+        PLC programming, and simulation tools (ANSYS, MATLAB, Arena). Proven ability to design and implement cost-saving solutions,
+        improve product manufacturability, and lead cross-functional projects. Known for strong communication, leadership, and eagerness
+        to learn, with a passion for clean-tech, electromechanical design, automation and continuous improvement.
+      </p>
+    </section>
+
     <div class="panel">
       <div class="btn-row">
         <a class="btn primary" href="./Pranay_Kabra__Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
-        <a class="btn primary" href="./Project Portfolio_Mech.pdf" target="_blank" rel="noopener noreferrer">Portfolio (PDF)</a>
+        <a class="btn primary" href="./Project%20Portfolio_Mech.pdf" target="_blank" rel="noopener noreferrer">Portfolio (PDF)</a>
         <a class="btn" href="./certificates/index.html">Certificates</a>
       </div>
 
       <div class="links">
-        <a href="mailto:your.pranaykabra13@gmail.com">your.email@example.com</a>
+        <a href="mailto:pranaykabra13@gmail.com">pranaykabra13@gmail.com</a>
         <a href="https://www.linkedin.com/in/pranaykabra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </main>
 </body>
 </html>
-
 
 <!-- <!doctype html>
 <html lang="en">
